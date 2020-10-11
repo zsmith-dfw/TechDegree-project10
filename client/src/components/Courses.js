@@ -22,28 +22,30 @@ export default class Courses extends Component {
         title: response.data.data
       })
       console.log(response)
+      // console.log(title)
     })
     .catch(error => {
       console.log('Error fetching and parsing data', error)
     })
   }
   render() {
-    console.log(this.state.courses)
+    // console.log(this.state.courses)
   const results = this.state
-  console.log(results)
+  // console.log(results)
   let courses;
   if(results && results.length > 0) {
-    courses = results.map((course) => {
-      const courseName = `http://localhost:5000/api/courses:id`;
-      return <Course url={courseName} key={course.id} />
-    })
+    courses = results.map(course => 
+
+       <Course title={course.title}
+               key={course.id} />)
+    }
+    return (
+      <div>
+        {courses}
+      </div>
+    )
   }
 
-  return (
-    <div>
-      {courses}
-    </div>
-  )
-}
+
 }
 
