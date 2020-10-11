@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Course from './Course'
-import apiBaseUrl from '../config';
+import config from '../config';
 import axios from "axios";
 
-export default class Courses extends Component() {
+export default class Courses extends Component {
   constructor() {
+    super()
 
     this.state = {
       courses: [],
@@ -15,23 +16,23 @@ export default class Courses extends Component() {
   }
 
   returnCourses =() => {
-    axios.get(`${apiBaseUrl}/courses`)
+    axios.get(`${config.apiBaseUrl}/courses`)
     .then(response => {
-      // this.setState({
-      //   courses: response.data.courses
-      // })
+      this.setState({
+        title: response.data.data
+      })
       console.log(response)
     })
     .catch(error => {
       console.log('Error fetching and parsing data', error)
     })
   }
-  render(props) {
+  render() {
     console.log(this.state.courses)
-  const results = props.data;
+  const results = this.state
   console.log(results)
   let courses;
-  if(results.length > 0) {
+  if(results && results.length > 0) {
     courses = results.map((course) => {
       const courseName = `http://localhost:5000/api/courses:id`;
       return <Course url={courseName} key={course.id} />
@@ -45,3 +46,4 @@ export default class Courses extends Component() {
   )
 }
 }
+
