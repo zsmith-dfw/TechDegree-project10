@@ -19,7 +19,7 @@ export default class Courses extends Component {
     axios.get(`${config.apiBaseUrl}/courses`)
     .then(response => {
       this.setState({
-        title: response.data.data
+        courses: response.data
       })
       console.log(response)
       // console.log(title)
@@ -30,7 +30,7 @@ export default class Courses extends Component {
   }
   render() {
     // console.log(this.state.courses)
-  const results = this.state
+  const results = this.state.courses
   // console.log(results)
   let courses;
   if(results && results.length > 0) {
@@ -39,13 +39,15 @@ export default class Courses extends Component {
        <Course title={course.title}
                key={course.id} />)
     }
+    console.log(courses)
     return (
-      <div>
+      <div className ='bounds'>
+
         {courses}
+
       </div>
     )
   }
 
 
 }
-
