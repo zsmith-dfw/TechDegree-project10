@@ -1,11 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Course = (props) => (
-  <div className='grid-33'>
-  <a className="course--module course--link" href="course-detail.html">
-  <h4 className="course--label">Course</h4>
-  <h3 className="course--title">{props.title}</h3>
-</a>
-</div>
+  <div className="grid-33">
+    <Link className="course--module course--link" to="/courses/">
+    {/* <Link to="/courses?sort=id" /> */}
+      <h4 className="course--label">Course</h4>
+      <h3 className="course--title">{props.title}</h3>
+    </Link>
+  </div>
 );
 export default Course;

@@ -1,53 +1,69 @@
-import React, { Component } from 'react';
-import Course from './Course'
-import config from '../config';
+import React, { Component } from "react";
+import Course from "./Course";
+import config from "../config";
 import axios from "axios";
 
 export default class Courses extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       courses: [],
-    }
+    };
   }
   componentDidMount() {
-    this.returnCourses()
+    this.returnCourses();
   }
 
-  returnCourses =() => {
-    axios.get(`${config.apiBaseUrl}/courses`)
-    .then(response => {
-      this.setState({
-        courses: response.data
+  returnCourses = () => {
+    axios
+      .get(`${config.apiBaseUrl}/courses`)
+      .then((response) => {
+        this.setState({
+          courses: response.data,
+        });
+        console.log(response);
+        // console.log(title)
       })
-      console.log(response)
-      // console.log(title)
-    })
-    .catch(error => {
-      console.log('Error fetching and parsing data', error)
-    })
-  }
+      .catch((error) => {
+        console.log("Error fetching and parsing data", error);
+      });
+  };
   render() {
     // console.log(this.state.courses)
-  const results = this.state.courses
-  // console.log(results)
-  let courses;
-  if(results && results.length > 0) {
-    courses = results.map(course => 
-
-       <Course title={course.title}
-               key={course.id} />)
+    const results = this.state.courses;
+    // console.log(results)
+    let courses;
+    if (results && results.length > 0) {
+      courses = results.map((course) => (
+        <Course title={course.title} key={course.id} />
+      ));
     }
-    console.log(courses)
+    console.log(courses);
     return (
-      <div className ='bounds'>
-
+      <div className="bounds">
         {courses}
-
+        <div className="grid-33">
+          <a
+            className="course--module course--add--module"
+            href="create-course.html"
+          >
+            <h3 className="course--add--title">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                viewBox="0 0 13 13"
+                className="add"
+              >
+                <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "></polygon>
+              </svg>
+              New Course
+            </h3>
+          </a>
+        </div>
       </div>
-    )
+    );
   }
-
-
 }

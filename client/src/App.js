@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -9,7 +9,7 @@ import Header from './components/Header';
 import Courses from './components/Courses'
 import UserSignUp from './components/UserSignUp';
 import UserSignIn from './components/UserSignIn';
-
+import CourseDetail from './components/CourseDetail'
 
 const App = () => {
 
@@ -21,6 +21,7 @@ const App = () => {
           <Route exact path="/"  render={() => <Courses />} />
           <Route path="/signin" component={UserSignIn} />
           <Route path="/signup" component={UserSignUp} />
+          <Route path="/courses/" component={CourseDetail} />
         </Switch>
       </div>
     </Router>
