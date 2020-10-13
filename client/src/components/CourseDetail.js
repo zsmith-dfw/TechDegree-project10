@@ -29,9 +29,9 @@ export default class CourseDetail extends Component {
       });
   };
   render() {
-    // console.log(this.state.courses)
+    // const { id } = this.props.match.params;
+
     const results = this.state.courses;
-    // console.log(results)
     let courses;
     if (results && results.length > 0) {
       courses = results.map((course) => (
