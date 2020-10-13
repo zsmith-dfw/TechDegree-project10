@@ -36,7 +36,7 @@ export default class Courses extends Component {
     let courses;
     if (results && results.length > 0) {
       courses = results.map((course) => (
-        <Course title={course.title} id={course.id} />
+        <Course title={course.title} key={course.id} id={course.id} />
       ));
     }
     console.log(courses);

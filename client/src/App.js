@@ -21,7 +21,7 @@ const App = () => {
           <Route exact path="/"  render={() => <Courses />} />
           <Route path="/signin" component={UserSignIn} />
           <Route path="/signup" component={UserSignUp} />
-          <Route path="/courses/:id" component={CourseDetail} />
+          <Route path={"/courses/:id"} component={CourseDetail} />
         </Switch>
       </div>
     </Router>
