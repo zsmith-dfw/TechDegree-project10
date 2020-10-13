@@ -34,7 +34,7 @@ export default class CourseDetail extends Component {
 
     const results = this.state.course;
     let courses;
-    if (results) {
+    if (results> 0) {
       courses = ((course) => (
         <Info
           title={course.title}

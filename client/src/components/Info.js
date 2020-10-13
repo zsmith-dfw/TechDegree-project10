@@ -24,10 +24,10 @@ const Info = (props) => (
         <div className="course--header">
           <h4 className="course--label">Course</h4>
           <h3 className="course--title">{props.title}</h3>
-          <p>{props.User}</p>
+          <p>{props.name}</p>
         </div>
         <div className="course--description">
-          <p>{props.description}</p>
+          <p>{props.desc}</p>
         </div>
       </div>
       <div className="grid-25 grid-right">
@@ -35,12 +35,12 @@ const Info = (props) => (
           <ul className="course--stats--list">
             <li className="course--stats--list--item">
               <h4>Estimated Time</h4>
-              <h3>{props.estimatedTime}</h3>
+              <h3>{props.time}</h3>
             </li>
             <li className="course--stats--list--item">
               <h4>Materials Needed</h4>
               <ul>
-                <li>{props.materialsNeeded}</li>
+                <li>{props.materials}</li>
               </ul>
             </li>
           </ul>
