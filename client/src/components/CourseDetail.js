@@ -16,8 +16,9 @@ export default class CourseDetail extends Component {
   }
 
   returnCourseInfo = () => {
+    const { match: { params} } = this.props
     axios
-      .get(`${config.apiBaseUrl}/courses/`)
+      .get(`${config.apiBaseUrl}/courses${params.id}`)
       .then((response) => {
         this.setState({
           courses: response.data,
@@ -29,7 +30,6 @@ export default class CourseDetail extends Component {
       });
   };
   render() {
-    // const { id } = this.props.match.params;
 
     const results = this.state.courses;
     let courses;
