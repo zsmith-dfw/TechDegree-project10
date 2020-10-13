@@ -18,7 +18,7 @@ export default class CourseDetail extends Component {
   returnCourseInfo = () => {
     const { match: { params} } = this.props
     axios
-      .get(`${config.apiBaseUrl}/courses${params.id}`)
+      .get(`${config.apiBaseUrl}/courses/${params.id}`)
       .then((response) => {
         this.setState({
           courses: response.data,
@@ -28,13 +28,14 @@ export default class CourseDetail extends Component {
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
+      console.log(this.props)
   };
   render() {
 
-    const results = this.state.courses;
+    const results = this.state.course;
     let courses;
-    if (results && results.length > 0) {
-      courses = results.map((course) => (
+    if (results) {
+      courses = ((course) => (
         <Info
           title={course.title}
           key={course.id}
