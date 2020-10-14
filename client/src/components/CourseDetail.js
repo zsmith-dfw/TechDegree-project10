@@ -34,17 +34,18 @@ export default class CourseDetail extends Component {
 
     const results = this.state.course;
     let courses;
-    if (results> 0) {
-      courses = ((course) => (
+    if (results) {
+  return (
         <Info
-          title={course.title}
-          key={course.id}
-          name={course.User}
-          desc={course.description}
-          time={course.estimatedTime}
-          materials={course.materialsNeeded}
+          title={results.title}
+          key={results.id}
+          firstName={results.firstName}
+          lastName={results.lastName}
+          desc={results.description}
+          time={results.estimatedTime}
+          materials={results.materialsNeeded}
         />
-      ));
+        )
     }
     return <div>{courses}</div>;
   }

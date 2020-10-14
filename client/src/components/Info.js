@@ -24,7 +24,7 @@ const Info = (props) => (
         <div className="course--header">
           <h4 className="course--label">Course</h4>
           <h3 className="course--title">{props.title}</h3>
-          <p>{props.name}</p>
+          <p>{props.firstName} {props.lastName}</p>
         </div>
         <div className="course--description">
           <p>{props.desc}</p>
