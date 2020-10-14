@@ -8,7 +8,9 @@ export default class CourseDetail extends Component {
     super();
 
     this.state = {
-      courseInfo: [],
+      courseInfo: [
+        
+      ],
     };
   }
   componentDidMount() {
@@ -21,7 +23,7 @@ export default class CourseDetail extends Component {
       .get(`${config.apiBaseUrl}/courses/${params.id}`)
       .then((response) => {
         this.setState({
-          courses: response.data,
+          course: response.data,
         });
         console.log(response);
       })
@@ -39,8 +41,8 @@ export default class CourseDetail extends Component {
         <Info
           title={results.title}
           key={results.id}
-          firstName={results.firstName}
-          lastName={results.lastName}
+          firstName={results.User.firstName}
+          lastName={results.User.lastName}
           desc={results.description}
           time={results.estimatedTime}
           materials={results.materialsNeeded}

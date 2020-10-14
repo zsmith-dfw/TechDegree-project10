@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Course from "./Course";
 import config from "../config";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 
 export default class Courses extends Component {
   constructor() {
@@ -44,10 +46,11 @@ export default class Courses extends Component {
       <div className="bounds">
         {courses}
         <div className="grid-33">
+        <Link to="/create">
           <a
             className="course--module course--add--module"
-            href="create-course.html"
-          >
+          
+          > 
             <h3 className="course--add--title">
               <svg
                 version="1.1"
@@ -58,12 +61,19 @@ export default class Courses extends Component {
                 className="add"
               >
                 <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "></polygon>
-              </svg>
+              </svg>     
               New Course
+              
             </h3>
+       
           </a>
+</Link>
         </div>
       </div>
     );
   }
 }
+
+          // <a>
+          // <Link className="button button-secondary" to="/">Return to List</Link>
+          // </a>
