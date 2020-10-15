@@ -90,13 +90,48 @@ change = (event) => {
 }
 
 submit = () => {
+  const { context } = this.props;
 
-}
+  const { 
+    firstName,
+    lastName,
+    emailAddress,
+    password,
+    confirmPassword,
+  } = this.state;
+
+  const user = {
+    firstName,
+    lastName,
+    emailAddress,
+    password,
+    confirmPassword,
+  }
+
+  context.data.createUser(user)
+  .then( errors => {
+    if (errors.length) {
+     this.setState({ errors })
+    } else {
+      console.log(`${emailAddress} is successfully signed up and authenticated!`)
+    }
+  })
+  .catch( err => {
+    console.log(err)
+    this.props.history.push('/error')
+  })
+    
+  }
+  
+
+
 
 cancel = () => {
+  this.props.history.push('/')
 
 }
 }
+
 
 
 

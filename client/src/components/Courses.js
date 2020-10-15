@@ -74,6 +74,3 @@ export default class Courses extends Component {
   }
 }
 
-          // <a>
-          // <Link className="button button-secondary" to="/">Return to List</Link>
-          // </a>
