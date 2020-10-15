@@ -14,6 +14,7 @@ import CourseDetail from './components/CourseDetail'
 import CreateCourse from './components/CreateCourse'
 import UpdateCourse from './components/UpdateCourse'
 import Error from './Error'
+import PrivateRoute from './PrivateRoute'
 
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn)
@@ -32,7 +33,7 @@ const App = () => {
           <Route exact path="/"  render={() => <Courses />} />
           <Route path="/signin" component={UserSignInWithContext} />
           <Route path="/signup" component={UserSignUpWithContext} />
-          <Route path="/create" component={CreateCourse} />
+          <PrivateRoute path="/create" component={CreateCourse} />
           <Route path="/update" component={UpdateCourse} />
           <Route path={"/courses/:id"} component={CourseDetail} />
           <Route path={"/error"} component={Error} />
