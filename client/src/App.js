@@ -16,6 +16,8 @@ import UpdateCourse from './components/UpdateCourse'
 import Error from './Error'
 
 const UserSignUpWithContext = withContext(UserSignUp);
+const UserSignInWithContext = withContext(UserSignIn)
+const HeaderWithContext = withContext(Header)
 
 
 const App = () => {
@@ -25,10 +27,10 @@ const App = () => {
     return(
       <Router>
       <div>
-        <Header />
+        <HeaderWithContext />
         <Switch>
           <Route exact path="/"  render={() => <Courses />} />
-          <Route path="/signin" component={UserSignIn} />
+          <Route path="/signin" component={UserSignInWithContext} />
           <Route path="/signup" component={UserSignUpWithContext} />
           <Route path="/create" component={CreateCourse} />
           <Route path="/update" component={UpdateCourse} />
