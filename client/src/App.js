@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Courses from './components/Courses'
 import UserSignUp from './components/UserSignUp';
 import UserSignIn from './components/UserSignIn';
+import UserSignOut from './components/UserSignOut'
 import CourseDetail from './components/CourseDetail'
 import CreateCourse from './components/CreateCourse'
 import UpdateCourse from './components/UpdateCourse'
@@ -18,6 +19,7 @@ import PrivateRoute from './PrivateRoute'
 
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn)
+const UserSignOutWithContext = withContext(UserSignOut)
 const HeaderWithContext = withContext(Header)
 
 
@@ -33,6 +35,7 @@ const App = () => {
           <Route exact path="/"  render={() => <Courses />} />
           <Route path="/signin" component={UserSignInWithContext} />
           <Route path="/signup" component={UserSignUpWithContext} />
+          <Route path="/signout" component={UserSignOutWithContext} />
           <PrivateRoute path="/create" component={CreateCourse} />
           <Route path="/update" component={UpdateCourse} />
           <Route path={"/courses/:id"} component={CourseDetail} />
