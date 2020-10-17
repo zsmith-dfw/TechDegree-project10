@@ -37,7 +37,7 @@ export default class CreateCourse extends Component {
                         id="title"
                         name="title"
                         type="text"
-                        defaultValue= "Insert Course Name Here"
+                        value= {title}
                         onChange={this.change}
                         placeholder="Course title..."
                       />
@@ -49,8 +49,8 @@ export default class CreateCourse extends Component {
                       id="description"
                       name="description"
                       type="text"
-                      // value={description}
-                      defaultValue="insert description here"
+                      value={description}
+                      
                       onChange={this.change}
                       placeholder="Course description..."
                     />
@@ -68,7 +68,6 @@ export default class CreateCourse extends Component {
                             type="text"
                             className="course--time--input"
                             placeholder="Hours"
-                            defaultValue
                           />
                         </div>
                       </li>
@@ -78,9 +77,7 @@ export default class CreateCourse extends Component {
                           <textarea
                             id="materialsNeeded"
                             name="materialsNeeded"
-                            className
                             placeholder="List materials..."
-                            defaultValue={""}
                           />
                         </div>
                       </li>
@@ -96,6 +93,17 @@ export default class CreateCourse extends Component {
     );
   }
 
+  change = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState(() => {
+      return {
+        [name]: value
+      };
+    });
+  }
+
   submit = () => {
     const { context } = this.props;
 
@@ -109,7 +117,7 @@ export default class CreateCourse extends Component {
     };
 
     context.data
-      .createUser(course)
+      .createCourse(course)
       .then((errors) => {
         if (errors.length) {
           this.setState({ errors });
