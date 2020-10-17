@@ -109,27 +109,28 @@ export default class CreateCourse extends Component {
 
   submit = () => {
     const { context } = this.props;
-    const { title, description, estimatedTime, materialsNeeded, emailAddress, password } = this.state;
-    console.log(password)
-    console.log(emailAddress)
+    const { title, description, estimatedTime, materialsNeeded } = this.state;
+    const emailAddress = context.authenticatedUser.emailAddress
+    const password = context.authenticatedUser.password
+    console.log(context.authenticatedUser.password)
+    console.log(context.authenticatedUser.emailAddress)
 
     const course = {
       title,
       description,
       estimatedTime,
       materialsNeeded,
-      emailAddress,
-      password
+
     };
   
 
     context.data
-      .createCourse(course)
+      .createCourse(course, emailAddress, password)
       .then((errors) => {
         if (errors.length) {
           this.setState({ errors });
         } else {
-          context.data.createCourse(emailAddress, password).then(() => {
+          context.data.createCourse().then(() => {
             this.props.history.push("/");
  
           });
