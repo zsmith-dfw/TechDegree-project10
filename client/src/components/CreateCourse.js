@@ -9,6 +9,7 @@ export default class CreateCourse extends Component {
     materialsNeeded: "",
     errors: [],
   };
+
   render() {
     const {
       title,
@@ -50,7 +51,6 @@ export default class CreateCourse extends Component {
                       name="description"
                       type="text"
                       value={description}
-                      
                       onChange={this.change}
                       placeholder="Course description..."
                     />
@@ -66,6 +66,8 @@ export default class CreateCourse extends Component {
                             id="estimatedTime"
                             name="estimatedTime"
                             type="text"
+                            value={estimatedTime}
+                            onChange={this.change}
                             className="course--time--input"
                             placeholder="Hours"
                           />
@@ -77,6 +79,9 @@ export default class CreateCourse extends Component {
                           <textarea
                             id="materialsNeeded"
                             name="materialsNeeded"
+                            type="text"
+                            value={materialsNeeded}
+                            onChange={this.change}
                             placeholder="List materials..."
                           />
                         </div>
@@ -84,11 +89,9 @@ export default class CreateCourse extends Component {
                     </ul>
                   </div>
                 </div>
-                {/* <div className="grid-100 pad-bottom"><button className="button" type="submit">Create Course</button><button className="button button-secondary" onClick="event.preventDefault(); location.href='index.html';">Cancel</button></div> */}
               </React.Fragment>
             )}
           />
-        {/* </div> */}
       </div>
     );
   }
@@ -106,15 +109,19 @@ export default class CreateCourse extends Component {
 
   submit = () => {
     const { context } = this.props;
-
-    const { title, description, estimatedTime, materialsNeeded } = this.state;
+    const { title, description, estimatedTime, materialsNeeded, emailAddress, password } = this.state;
+    console.log(password)
+    console.log(emailAddress)
 
     const course = {
       title,
       description,
       estimatedTime,
       materialsNeeded,
+      emailAddress,
+      password
     };
+  
 
     context.data
       .createCourse(course)
@@ -122,7 +129,10 @@ export default class CreateCourse extends Component {
         if (errors.length) {
           this.setState({ errors });
         } else {
-          this.props.history.push("/");
+          context.data.createCourse(emailAddress, password).then(() => {
+            this.props.history.push("/");
+ 
+          });
         }
       })
       .catch((err) => {
