@@ -112,7 +112,7 @@ export default class CreateCourse extends Component {
     const { title, description, estimatedTime, materialsNeeded } = this.state;
     const emailAddress = context.authenticatedUser.emailAddress
     const password = context.authenticatedUser.password
-    console.log(context.authenticatedUser.password)
+    console.log(context)
     console.log(context.authenticatedUser.emailAddress)
 
     const course = {
@@ -130,7 +130,7 @@ export default class CreateCourse extends Component {
         if (errors.length) {
           this.setState({ errors });
         } else {
-          context.data.createCourse().then(() => {
+          context.data.createCourse(course).then(() => {
             this.props.history.push("/");
  
           });
