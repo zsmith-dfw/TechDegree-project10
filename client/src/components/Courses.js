@@ -1,3 +1,4 @@
+  
 import React, { Component } from "react";
 import Course from "./Course";
 import config from "../config";
@@ -73,4 +74,3 @@ export default class Courses extends Component {
     );
   }
 }
-

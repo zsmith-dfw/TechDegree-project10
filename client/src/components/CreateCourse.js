@@ -7,7 +7,6 @@ export default class CreateCourse extends Component {
     description: "",
     estimatedTime: "",
     materialsNeeded: "",
-    userId: "",
     errors: [],
   };
 
@@ -110,11 +109,12 @@ export default class CreateCourse extends Component {
 
   submit = () => {
     const { context } = this.props;
-    const { title, description, estimatedTime, materialsNeeded, userId } = this.state;
+    const { title, description, estimatedTime, materialsNeeded} = this.state;
     const emailAddress = context.authenticatedUser.emailAddress
     const password = context.authenticatedUser.password
+    const userId = context.authenticatedUser.userId
     console.log(context)
-    console.log(context.authenticatedUser.emailAddress)
+    console.log(context.authenticatedUser)
 
     const course = {
       title,
