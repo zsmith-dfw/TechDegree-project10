@@ -131,10 +131,10 @@ export default class CreateCourse extends Component {
         if (errors.length) {
           this.setState({ errors });
         } else {
-          context.data.createCourse(course).then(() => {
+        
             this.props.history.push("/");
  
-          });
+       
         }
       })
       .catch((err) => {

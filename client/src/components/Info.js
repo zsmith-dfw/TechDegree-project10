@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+
 const Info = (props) => (
+  
+  
   <div>
     <div className="actions--bar">
       <div className="bounds">
@@ -52,3 +55,6 @@ const Info = (props) => (
 );
 
 export default Info;
+
+
+
