@@ -43,7 +43,6 @@ export default class CreateCourse extends Component {
                         placeholder="Course title..."
                       />
                     </div>
-                    <p>By Joe Smith</p>
                   </div>
                   <div className="course--description">
                     <textarea
