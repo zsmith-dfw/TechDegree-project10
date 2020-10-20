@@ -25,12 +25,10 @@ export default class CourseDetail extends Component {
         this.setState({
           course: response.data,
         });
-        console.log(response);
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
-      console.log(this.props)
   };
   render() {
 

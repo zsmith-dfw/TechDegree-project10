@@ -1,28 +1,14 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import ActionsBar from "./ActionsBar";
+// const ActionsBarWithContext = withContext(ActionsBar)
+
 
 
 const Info = (props) => (
   
   
   <div>
-    <div className="actions--bar">
-      <div className="bounds">
-        <div className="grid-100">
-          <span>
-            <a> <Link className="button" to="/update">
-              Update Course</Link>
-            </a>
-            <a className="button" href="#">
-              Delete Course
-            </a>
-          </span>
-          <a>
-          <Link className="button button-secondary" to="/">Return to List</Link>
-          </a>
-        </div>
-      </div>
-    </div>
+  <ActionsBar />
     <div className="bounds course--detail">
       <div className="grid-66">
         <div className="course--header">

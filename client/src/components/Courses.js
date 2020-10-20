@@ -25,24 +25,19 @@ export default class Courses extends Component {
         this.setState({
           courses: response.data,
         });
-        console.log(response);
-        // console.log(title)
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
   };
   render() {
-    // console.log(this.state.courses)
     const results = this.state.courses;
-    // console.log(results)
     let courses;
     if (results && results.length > 0) {
       courses = results.map((course) => (
         <Course title={course.title} key={course.id} id={course.id} />
       ));
     }
-    console.log(courses);
     return (
       <div className="bounds">
         {courses}
