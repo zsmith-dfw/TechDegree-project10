@@ -1,6 +1,8 @@
 import React from "react";
 import ActionsBar from "./ActionsBar";
-// const ActionsBarWithContext = withContext(ActionsBar)
+import withContext from '../Context'
+
+const ActionsBarWithContext = withContext(ActionsBar)
 
 
 
@@ -8,7 +10,7 @@ const Info = (props) => (
   
   
   <div>
-  <ActionsBar />
+  <ActionsBarWithContext />
     <div className="bounds course--detail">
       <div className="grid-66">
         <div className="course--header">
