@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import Course from "./Course";
 import config from "../config";
@@ -42,11 +41,11 @@ export default class Courses extends Component {
       <div className="bounds">
         {courses}
         <div className="grid-33">
-        <Link to="/create">
-          <a
-            className="course--module course--add--module"
+        <Link className="course--module course--add--module" to="/create">
           
-          > 
+            
+          
+          
             <h3 className="course--add--title">
               <svg
                 version="1.1"
@@ -62,10 +61,11 @@ export default class Courses extends Component {
               
             </h3>
        
-          </a>
+          
 </Link>
         </div>
       </div>
     );
   }
 }
+

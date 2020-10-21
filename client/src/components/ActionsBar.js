@@ -13,22 +13,22 @@ export default class ActionsBar extends React.PureComponent {
           {authUser ?
           <React.Fragment>
             <span>
-              <a> <Link className="button" to="/update">
+              <Link className="button" to="/update">
                 Update Course</Link>
-              </a>
-              <a className="button" href="#">
+              
+              <Link className="button" to="/">
                 Delete Course
-              </a>
+              </Link>
             </span>
-            <a>
+           
             <Link className="button button-secondary" to="/">Return to List</Link>
-            </a>
+          
             </React.Fragment>
            :
           <React.Fragment>
-          <a>
+          
             <Link className="button button-secondary" to="/">Return to List</Link>
-            </a>
+           
           </React.Fragment> 
         }
         </div>
@@ -37,8 +37,6 @@ export default class ActionsBar extends React.PureComponent {
     );
   }
 };
-
-
 
 
 

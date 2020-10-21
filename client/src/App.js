@@ -38,7 +38,7 @@ const App = () => {
           <Route path="/signup" component={UserSignUpWithContext} />
           <Route path="/signout" component={UserSignOutWithContext} />
           <PrivateRoute path="/create" component={CreateCourseWithContext} />
-          <Route path="/update" component={UpdateCourse} />
+          <PrivateRoute path="/courses/:id/update" component={UpdateCourse} />
           <Route path={"/courses/:id"} component={CourseDetail} />
           <Route path={"/error"} component={Error} />
         </Switch>
@@ -49,7 +49,6 @@ const App = () => {
   }
 
   export default App
-
 
 
 
