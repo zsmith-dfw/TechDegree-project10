@@ -7,17 +7,15 @@ export default class ActionsBar extends React.PureComponent {
     const { context } = this.props;
 
     console.log(context);
-    const authUser = context.authenticatedUser.userId;
-    console.log(authUser)
-    console.log(this.props.userId)
+    const authUser = context.authenticatedUser
     return (
       <div className="actions--bar">
         <div className="bounds">
           <div className="grid-100">
-            {authUser && authUser === this.props.userId ? (
+            {authUser && authUser.userId === this.props.userId ? (
               <React.Fragment>
                 <span>
-                  <Link className="button" to="/update">
+                  <Link className="button" to={`/courses/${this.props.id}/update`}>
                     Update Course
                   </Link>
                   <Link className="button" to="/">

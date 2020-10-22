@@ -10,7 +10,7 @@ const Info = (props) => (
   
   
   <div>
-  <ActionsBarWithContext />
+  <ActionsBarWithContext userId={props.userId} id={props.id}/>
     <div className="bounds course--detail">
       <div className="grid-66">
         <div className="course--header">

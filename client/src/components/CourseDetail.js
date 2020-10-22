@@ -37,10 +37,12 @@ export default class CourseDetail extends Component {
     const results = this.state.course;
     let courses;
     if (results) {
+      console.log(results)
   return (
         <Info
           title={results.title}
           key={results.id}
+          id={results.id}
           firstName={results.User.firstName}
           lastName={results.User.lastName}
           desc={results.description}

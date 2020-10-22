@@ -3,7 +3,7 @@ import Form from "./Form";
 
 export default class CreateCourse extends Component {
   state = {
-    title: "",
+    title: this.state.title,
     description: "",
     estimatedTime: "",
     materialsNeeded: "",
@@ -22,7 +22,6 @@ export default class CreateCourse extends Component {
     return (
       <div className="bounds course--detail">
         <h1>Create Course</h1>
-        {/* <div> */}
         <Form
           cancel={this.cancel}
           errors={errors}
