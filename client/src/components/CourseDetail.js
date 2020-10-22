@@ -46,6 +46,7 @@ export default class CourseDetail extends Component {
           desc={results.description}
           time={results.estimatedTime}
           materials={results.materialsNeeded}
+          userId={results.userId}
         />
         )
     }

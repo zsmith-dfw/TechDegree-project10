@@ -2,15 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default class ActionsBar extends React.PureComponent {
+
   render() {
     const { context } = this.props;
+
     console.log(context);
-    const authUser = context.authenticatedUser;
+    const authUser = context.authenticatedUser.userId;
+    console.log(authUser)
+    console.log(this.props.userId)
     return (
       <div className="actions--bar">
         <div className="bounds">
           <div className="grid-100">
-            {authUser ? (
+            {authUser && authUser === this.props.userId ? (
               <React.Fragment>
                 <span>
                   <Link className="button" to="/update">
