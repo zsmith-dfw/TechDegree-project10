@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Course from "./Course";
 import config from "../config";
 import axios from "axios";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 export default class Courses extends Component {
   constructor() {
@@ -13,6 +12,7 @@ export default class Courses extends Component {
       courses: [],
     };
   }
+
   componentDidMount() {
     this.returnCourses();
   }
@@ -29,6 +29,7 @@ export default class Courses extends Component {
         console.log("Error fetching and parsing data", error);
       });
   };
+
   render() {
     const results = this.state.courses;
     let courses;
@@ -36,16 +37,14 @@ export default class Courses extends Component {
       courses = results.map((course) => (
         <Course title={course.title} key={course.id} id={course.id} />
       ));
+     console.log(results)
     }
+
     return (
       <div className="bounds">
         {courses}
         <div className="grid-33">
-        <Link className="course--module course--add--module" to="/create">
-          
-            
-          
-          
+          <Link className="course--module course--add--module" to="/create">
             <h3 className="course--add--title">
               <svg
                 version="1.1"
@@ -56,16 +55,12 @@ export default class Courses extends Component {
                 className="add"
               >
                 <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "></polygon>
-              </svg>     
+              </svg>
               New Course
-              
             </h3>
-       
-          
-</Link>
+          </Link>
         </div>
       </div>
     );
   }
 }
-

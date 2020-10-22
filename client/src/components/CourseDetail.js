@@ -12,6 +12,7 @@ export default class CourseDetail extends Component {
         
       ],
     };
+
   }
   componentDidMount() {
     this.returnCourseInfo();
@@ -24,6 +25,7 @@ export default class CourseDetail extends Component {
       .then((response) => {
         this.setState({
           course: response.data,
+          
         });
       })
       .catch((error) => {

@@ -5,7 +5,6 @@ export default class Header extends React.PureComponent {
   render() {
     const { context } = this.props;
     const authUser = context.authenticatedUser;
-    console.log(context)
     return (
       <div className="header">
         <div className="bounds">

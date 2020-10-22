@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Data from './Data'
 import Cookies from 'js-cookie';
+// import Courses from './components/Courses'
 
 
 const Context = React.createContext(); 
@@ -14,13 +15,17 @@ export class Provider extends Component {
   constructor() {
     super();
     this.data = new Data();
+    // this.courses = new Courses();
   }
 
   render() {
     const { authenticatedUser } = this.state;
+    // const { courses } = this.state
 
     const value = {
       authenticatedUser,
+      // courses,
+      // courses: this.courses,
       data: this.data,
       actions: {
         signIn: this.signIn,
@@ -34,6 +39,10 @@ export class Provider extends Component {
       </Context.Provider>  
     );
   }
+
+  // getCourses = async() => {
+  //   const courses = await this.courses.
+  // }
 
   
   signIn = async (emailAddress, password) => {
