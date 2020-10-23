@@ -3,7 +3,7 @@ import Form from "./Form";
 
 export default class CreateCourse extends Component {
   state = {
-    title: this.state.title,
+    title: "",
     description: "",
     estimatedTime: "",
     materialsNeeded: "",

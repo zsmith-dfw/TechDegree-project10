@@ -20,12 +20,10 @@ export class Provider extends Component {
 
   render() {
     const { authenticatedUser } = this.state;
-    // const { courses } = this.state
+
 
     const value = {
       authenticatedUser,
-      // courses,
-      // courses: this.courses,
       data: this.data,
       actions: {
         signIn: this.signIn,
@@ -39,10 +37,6 @@ export class Provider extends Component {
       </Context.Provider>  
     );
   }
-
-  // getCourses = async() => {
-  //   const courses = await this.courses.
-  // }
 
   
   signIn = async (emailAddress, password) => {

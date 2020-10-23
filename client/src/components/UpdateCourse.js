@@ -10,6 +10,7 @@ export default class UpdateCourse extends Component {
     errors: [],
   };
 
+
   render() {
     const {
       title,
@@ -18,6 +19,8 @@ export default class UpdateCourse extends Component {
       materialsNeeded,
       errors,
     } = this.state;
+
+    
 
     return (
       <div className="bounds course--detail">
