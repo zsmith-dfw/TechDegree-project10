@@ -54,4 +54,7 @@ export default class CourseDetail extends Component {
     }
     return <div>{courses}</div>;
   }
+
+
+
 }
