@@ -69,7 +69,9 @@ export default class Data {
   }
 
   async UpdateCourse(course, emailAddress, password) {
-    const response = await this.api(`/courses/${course.id}`, 'PUT', course, true, {emailAddress, password});
+    const { match: { params} } = this.props.match.params.id
+    console.log(this.props.match.params.id)
+    const response = await this.api(`/courses/${params.id}`, 'PUT', course, true, {emailAddress, password});
 
     if (response.status === 201) {
       return [];
