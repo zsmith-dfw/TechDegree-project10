@@ -68,23 +68,21 @@ export default class Data {
     }
   }
 
-  // async UpdateCourse(course, emailAddress, password) {
-  //   const { match: { params} } = this.props.match.params.id
-  //   console.log(this.props.match.params.id)
-  //   const response = await this.api(`/courses/${params.id}`, 'PUT', course, true, {emailAddress, password});
+  async UpdateCourse(course, emailAddress, password) {
+    const response = await this.api(`/courses/${course.id}`, 'PUT', course, true, {emailAddress, password});
 
-  //   if (response.status === 201) {
-  //     return [];
-  //   }
-  //   else if (response.status === 400) {
-  //     return response.json().then(data => {
-  //       return data.errors;
-  //     });
-  //   }
-  //   else {
-  //     throw new Error();
-  //   }
-  // }
+    if (response.status === 201) {
+      return [];
+    }
+    else if (response.status === 400) {
+      return response.json().then(data => {
+        return data.errors;
+      });
+    }
+    else {
+      throw new Error();
+    }
+  }
 
 
 
