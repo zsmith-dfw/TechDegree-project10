@@ -1,16 +1,38 @@
 import React, { Component } from "react";
 import Form from "./Form";
+import config from '../config';
+import axios from "axios";
 
 export default class UpdateCourse extends Component {
   state = {
-    title: "",
-    description: "",
-    estimatedTime: "",
-    materialsNeeded: "",
+    title: this.props.title,
+    description: this.props.description,
+    estimatedTime: this.props.estimatedTime,
+    materialsNeeded: this.props.materialsNeeded,
     id: this.props.match.params.id,
     errors: [],
   };
 
+  componentDidMount() {
+    this.returnCourseInfo();
+  }
+
+  returnCourseInfo = () => {
+    const { match: { params} } = this.props
+    axios
+      .get(`${config.apiBaseUrl}/courses/${params.id}`)
+      .then((response) => {
+        this.setState({
+          course: response.data,
+          
+        });
+      })
+      .catch((error) => {
+        console.log("Error fetching and parsing data", error);
+      });
+  };
+
+  
 
   render() {
     const {
@@ -22,8 +44,6 @@ export default class UpdateCourse extends Component {
     } = this.state;
 
     console.log(this.props.match.params.id)
-
-    
 
     return (
       <div className="bounds course--detail">
@@ -141,7 +161,6 @@ export default class UpdateCourse extends Component {
         this.props.history.push("/error");
       });
   };
-
 
   // async UpdateCourse(course, emailAddress, password) {
   //   const { match: { params} } = this.props.match.params.id
