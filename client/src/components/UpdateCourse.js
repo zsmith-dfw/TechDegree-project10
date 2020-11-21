@@ -5,12 +5,14 @@ import axios from "axios";
 
 export default class UpdateCourse extends Component {
   state = {
-    title: this.props.title,
-    description: this.props.description,
-    estimatedTime: this.props.estimatedTime,
-    materialsNeeded: this.props.materialsNeeded,
+    course: this.response.data,
+    title: this.state.course.title,
+    description: this.state.course.description,
+    estimatedTime: this.state.course.estimatedTime,
+    materialsNeeded: this.state.materialsNeeded,
     id: this.props.match.params.id,
     errors: [],
+ 
   };
 
   componentDidMount() {
@@ -43,7 +45,7 @@ export default class UpdateCourse extends Component {
       errors,
     } = this.state;
 
-    console.log(this.props.match.params.id)
+    console.log(this.state)
 
     return (
       <div className="bounds course--detail">
