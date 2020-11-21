@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import Form from "./Form";
-import config from '../config';
+import config from "../config";
 import axios from "axios";
 
 export default class UpdateCourse extends Component {
   state = {
-    course: this.response.data,
-    title: this.state.course.title,
-    description: this.state.course.description,
-    estimatedTime: this.state.course.estimatedTime,
-    materialsNeeded: this.state.materialsNeeded,
-    id: this.props.match.params.id,
-    errors: [],
- 
+    course: [
+      {
+        title: this.state.course.title,
+        description: this.state.course.description,
+        estimatedTime: this.state.course.estimatedTime,
+        materialsNeeded: this.state.course.materialsNeeded,
+        id: this.props.match.params.id,
+        errors: [],
+      },
+    ],
   };
 
   componentDidMount() {
@@ -20,21 +22,20 @@ export default class UpdateCourse extends Component {
   }
 
   returnCourseInfo = () => {
-    const { match: { params} } = this.props
+    const {
+      match: { params },
+    } = this.props;
     axios
       .get(`${config.apiBaseUrl}/courses/${params.id}`)
       .then((response) => {
         this.setState({
           course: response.data,
-          
         });
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
   };
-
-  
 
   render() {
     const {
@@ -45,7 +46,7 @@ export default class UpdateCourse extends Component {
       errors,
     } = this.state;
 
-    console.log(this.state)
+    console.log(this.state);
 
     return (
       <div className="bounds course--detail">
@@ -135,7 +136,13 @@ export default class UpdateCourse extends Component {
 
   submit = () => {
     const { context } = this.props;
-    const { title, description, estimatedTime, materialsNeeded, id } = this.state;
+    const {
+      title,
+      description,
+      estimatedTime,
+      materialsNeeded,
+      id,
+    } = this.state;
     const emailAddress = context.authenticatedUser.emailAddress;
     const password = context.authenticatedUser.password;
     const userId = context.authenticatedUser.userId;
