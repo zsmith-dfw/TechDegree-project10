@@ -4,6 +4,9 @@ import config from "../config";
 import Info from "./Info";
 
 export default class CourseDetail extends Component {
+
+
+
   constructor() {
     super();
 

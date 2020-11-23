@@ -5,16 +5,14 @@ import axios from "axios";
 
 export default class UpdateCourse extends Component {
   state = {
-    course: [
-      {
-        title: this.state.course.title,
-        description: this.state.course.description,
-        estimatedTime: this.state.course.estimatedTime,
-        materialsNeeded: this.state.course.materialsNeeded,
-        id: this.props.match.params.id,
-        errors: [],
-      },
-    ],
+    course: {
+      title: "",
+      description: "",
+      estimatedTime: "",
+      materialsNeeded: "",
+    },
+    id: this.props.match.params.id,
+    errors: [],
   };
 
   componentDidMount() {
@@ -29,7 +27,12 @@ export default class UpdateCourse extends Component {
       .get(`${config.apiBaseUrl}/courses/${params.id}`)
       .then((response) => {
         this.setState({
-          course: response.data,
+          course: {
+            title: response.data.title,
+            description: response.data.description,
+            estimatedTime: response.data.estimatedTime,
+            materialsNeeded: response.data.materialsNeeded,
+          },
         });
       })
       .catch((error) => {
@@ -38,13 +41,14 @@ export default class UpdateCourse extends Component {
   };
 
   render() {
+    const { course, errors } = this.state;
+
     const {
       title,
       description,
       estimatedTime,
       materialsNeeded,
-      errors,
-    } = this.state;
+    } = course;
 
     console.log(this.state);
 
@@ -143,6 +147,7 @@ export default class UpdateCourse extends Component {
       materialsNeeded,
       id,
     } = this.state;
+    
     const emailAddress = context.authenticatedUser.emailAddress;
     const password = context.authenticatedUser.password;
     const userId = context.authenticatedUser.userId;
@@ -170,24 +175,6 @@ export default class UpdateCourse extends Component {
         this.props.history.push("/error");
       });
   };
-
-  // async UpdateCourse(course, emailAddress, password) {
-  //   const { match: { params} } = this.props.match.params.id
-  //   console.log(this.props.match.params.id)
-  //   const response = await this.api(`/courses/${params.id}`, 'PUT', course, true, {emailAddress, password});
-
-  //   if (response.status === 201) {
-  //     return [];
-  //   }
-  //   else if (response.status === 400) {
-  //     return response.json().then(data => {
-  //       return data.errors;
-  //     });
-  //   }
-  //   else {
-  //     throw new Error();
-  //   }
-  // }
 
   cancel = () => {
     this.props.history.push("/");

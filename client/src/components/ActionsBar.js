@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Data from '../Data'
 
 export default class ActionsBar extends React.PureComponent {
 
+
   render() {
     const { context } = this.props;
+
+    
 
     console.log(context);
     const authUser = context.authenticatedUser
@@ -18,7 +22,7 @@ export default class ActionsBar extends React.PureComponent {
                   <Link className="button" to={`/courses/${this.props.id}/update`}>
                     Update Course
                   </Link>
-                  <Link className="button" to="/">
+                  <Link className="button" onClick={Data.DeleteCourse} to="/">
                     Delete Course
                   </Link>
                 </span>
@@ -38,4 +42,5 @@ export default class ActionsBar extends React.PureComponent {
       </div>
     );
   }
+
 }
