@@ -14,6 +14,7 @@ import UserSignOut from './components/UserSignOut'
 import CourseDetail from './components/CourseDetail'
 import CreateCourse from './components/CreateCourse'
 import UpdateCourse from './components/UpdateCourse'
+import DeleteCourse from './components/DeleteCourse'
 import Error from './Error'
 import PrivateRoute from './PrivateRoute'
 
@@ -22,6 +23,7 @@ const UserSignInWithContext = withContext(UserSignIn)
 const UserSignOutWithContext = withContext(UserSignOut)
 const CreateCourseWithContext = withContext(CreateCourse)
 const UpdateCourseWithContext = withContext(UpdateCourse)
+const DeleteCourseWithContext = withContext(DeleteCourse)
 const HeaderWithContext = withContext(Header)
 
 
@@ -40,6 +42,7 @@ const App = () => {
           <Route path="/signout" component={UserSignOutWithContext} />
           <PrivateRoute path="/create" component={CreateCourseWithContext} />
           <PrivateRoute path="/courses/:id/update" component={UpdateCourseWithContext} />
+          <PrivateRoute path="/courses/:id/delete" component={DeleteCourseWithContext} />
           <Route path={"/courses/:id"} component={CourseDetail} />
           <Route path={"/error"} component={Error} />
         </Switch>
