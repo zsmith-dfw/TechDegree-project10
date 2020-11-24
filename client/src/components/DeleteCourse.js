@@ -8,6 +8,7 @@ export default class DeleteCourse extends Component {
         description: "",
         estimatedTime: "",
         materialsNeeded: "",
+        id: "",
         errors: [],
       };
 
@@ -55,7 +56,7 @@ export default class DeleteCourse extends Component {
     };
 
     context.data
-      .DeleteCourse(course, emailAddress, password)
+      .DeleteCourse(course, emailAddress, password, id)
       .then((errors) => {
         if (errors.length) {
           this.setState({ errors });
