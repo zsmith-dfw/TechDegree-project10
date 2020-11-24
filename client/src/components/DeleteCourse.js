@@ -12,12 +12,14 @@ export default class DeleteCourse extends Component {
       };
 
   render() {
+    const {  errors } = this.state;
     return (
       <div className="bounds">
         <h1>Are you sure you want to delete this course?</h1>
 
         <Form
           cancel={this.cancel}
+          errors={errors}
           submit={this.submit}
           submitButtonText="Delete Course"
           elements={() => (
