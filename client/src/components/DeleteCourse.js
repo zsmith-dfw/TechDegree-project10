@@ -8,9 +8,35 @@ export default class DeleteCourse extends Component {
         description: "",
         estimatedTime: "",
         materialsNeeded: "",
-        id: "",
+        id: this.props.match.params.id,
         errors: [],
       };
+
+      
+  // componentDidMount() {
+  //   this.returnCourseInfo();
+  // }
+
+  // returnCourseInfo = () => {
+  //   const {
+  //     match: { params },
+  //   } = this.props;
+  //   axios
+  //     .get(`${config.apiBaseUrl}/courses/${params.id}`)
+  //     .then((response) => {
+  //       this.setState({
+  //         course: {
+  //           title: response.data.title,
+  //           description: response.data.description,
+  //           estimatedTime: response.data.estimatedTime,
+  //           materialsNeeded: response.data.materialsNeeded,
+  //         },
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching and parsing data", error);
+  //     });
+  // };
 
   render() {
     const {  errors } = this.state;
