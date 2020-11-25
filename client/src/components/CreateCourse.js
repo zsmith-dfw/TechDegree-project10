@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Form from "./Form";
 
+// pretty self explanatory. creates the screen for a user to create their own course
+
 export default class CreateCourse extends Component {
   state = {
     title: "",

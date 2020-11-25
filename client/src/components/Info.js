@@ -1,28 +1,25 @@
 import React from "react";
 import ActionsBar from "./ActionsBar";
-import withContext from '../Context'
+import withContext from "../Context";
+import ReactMarkdown from "react-markdown";
 
+// renders all of the data for each individual course
 
-
-
-const ActionsBarWithContext = withContext(ActionsBar)
-
-
-
+const ActionsBarWithContext = withContext(ActionsBar);
 const Info = (props) => (
-  
-  
   <div>
-  <ActionsBarWithContext userId={props.userId} id={props.id}/>
+    <ActionsBarWithContext userId={props.userId} id={props.id} />
     <div className="bounds course--detail">
       <div className="grid-66">
         <div className="course--header">
           <h4 className="course--label">Course</h4>
           <h3 className="course--title">{props.title}</h3>
-          <p>{props.firstName} {props.lastName}</p>
+          <p>
+            {props.firstName} {props.lastName}
+          </p>
         </div>
         <div className="course--description">
-          <p>{props.desc}</p>
+          <ReactMarkdown source={props.desc} />
         </div>
       </div>
       <div className="grid-25 grid-right">
@@ -35,7 +32,7 @@ const Info = (props) => (
             <li className="course--stats--list--item">
               <h4>Materials Needed</h4>
               <ul>
-                <li>{props.materials}</li>
+                <ReactMarkdown source={props.materials} />
               </ul>
             </li>
           </ul>
@@ -46,6 +43,3 @@ const Info = (props) => (
 );
 
 export default Info;
-
-
-

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import config from "../config";
 import Info from "./Info";
-import ReactMarkdown from "react-markdown";
+
+// Fetches data from API and makes props for each part of the course so each course has its own page. This is done in the Info component
 
 export default class CourseDetail extends Component {
   constructor() {
@@ -31,19 +32,13 @@ export default class CourseDetail extends Component {
         console.log("Error fetching and parsing data", error);
       });
   };
+  
   render() {
     const results = this.state.course;
     let courses;
     if (results) {
-      console.log(results);
-
-      const description = results.description;
-      const materials = results.materialsNeeded;
-
       return (
         <div>
-          <ReactMarkdown source={description} />
-          <ReactMarkdown source={materials} />
           <Info
             title={results.title}
             key={results.id}

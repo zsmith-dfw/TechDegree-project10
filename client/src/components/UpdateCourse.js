@@ -50,8 +50,6 @@ export default class UpdateCourse extends Component {
       materialsNeeded,
     } = course;
 
-    console.log(this.state);
-
     return (
       <div className="bounds course--detail">
         <h1>Update Course</h1>

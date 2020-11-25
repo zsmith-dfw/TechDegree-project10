@@ -1,18 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 export default class ActionsBar extends React.PureComponent {
-
-
-
-
   render() {
     const { context } = this.props;
+    const authUser = context.authenticatedUser;
 
+    // Just has the links at the top to update, delete, or cancel. Split into its own component for modularity
 
-    console.log(context);
-    const authUser = context.authenticatedUser
     return (
       <div className="actions--bar">
         <div className="bounds">
@@ -20,10 +15,16 @@ export default class ActionsBar extends React.PureComponent {
             {authUser && authUser.userId === this.props.userId ? (
               <React.Fragment>
                 <span>
-                  <Link className="button" to={`/courses/${this.props.id}/update`}>
+                  <Link
+                    className="button"
+                    to={`/courses/${this.props.id}/update`}
+                  >
                     Update Course
                   </Link>
-                  <Link className="button"  to={`/courses/${this.props.id}/delete`}>
+                  <Link
+                    className="button"
+                    to={`/courses/${this.props.id}/delete`}
+                  >
                     Delete Course
                   </Link>
                 </span>
@@ -43,5 +44,4 @@ export default class ActionsBar extends React.PureComponent {
       </div>
     );
   }
-
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Form from "./Form";
 
+// decided to make this so that users don't inadvertantly delete courses they don't mean to
+
 export default class DeleteCourse extends Component {
 
     state = {
@@ -11,32 +13,6 @@ export default class DeleteCourse extends Component {
         id: this.props.match.params.id,
         errors: [],
       };
-
-      
-  // componentDidMount() {
-  //   this.returnCourseInfo();
-  // }
-
-  // returnCourseInfo = () => {
-  //   const {
-  //     match: { params },
-  //   } = this.props;
-  //   axios
-  //     .get(`${config.apiBaseUrl}/courses/${params.id}`)
-  //     .then((response) => {
-  //       this.setState({
-  //         course: {
-  //           title: response.data.title,
-  //           description: response.data.description,
-  //           estimatedTime: response.data.estimatedTime,
-  //           materialsNeeded: response.data.materialsNeeded,
-  //         },
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error fetching and parsing data", error);
-  //     });
-  // };
 
   render() {
     const {  errors } = this.state;

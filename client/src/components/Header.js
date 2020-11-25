@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// checks to see if a user is signed in or not
+
 export default class Header extends React.PureComponent {
   render() {
     const { context } = this.props;

@@ -4,6 +4,8 @@ import config from "../config";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// takes each course button component and renders them into a grid
+
 export default class Courses extends Component {
   constructor() {
     super();
@@ -37,7 +39,6 @@ export default class Courses extends Component {
       courses = results.map((course) => (
         <Course title={course.title} key={course.id} id={course.id} />
       ));
-     console.log(results)
     }
 
     return (

@@ -1,5 +1,7 @@
 import React from 'react';
 
+// similar in nature to the Treehouse course on React authentication, this code handles the submit / cancel buttons for creating, deleting, and updating a course. 
+
 export default (props) => {
   const {
     cancel,
