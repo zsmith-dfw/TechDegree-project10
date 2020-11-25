@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Data from "./Data";
 import Cookies from "js-cookie";
 
+// Context API provides functions to use Sign In / Sign Out functions without the need for excessive prop drilling.
+
 const Context = React.createContext();
 
 export class Provider extends Component {

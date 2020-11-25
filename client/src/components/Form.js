@@ -11,6 +11,9 @@ export default (props) => {
     elements,
   } = props;
 
+  // will attempt to submit course data (new or updates) to the database but if there is any kind of validation error, it will throw those errors so the user knows what is missing. 
+  // If there is any other type of error (i.e. 404 or 500) then the user is routed to the error page
+
   function handleSubmit(event) {
     event.preventDefault();
     submit();

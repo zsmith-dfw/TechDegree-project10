@@ -73,6 +73,6 @@ export default class DeleteCourse extends Component {
   };
 
   cancel = () => {
-    this.props.history.push("/");
+    this.props.history.push(`/courses/${this.props.match.params.id}`);
   };
 }

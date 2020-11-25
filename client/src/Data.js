@@ -1,5 +1,7 @@
 import config from "./config";
 
+// This provides all of the helper methods for all CRUD operations concerning both users and courses. Having them here keeps each component a lot neater.
+
 export default class Data {
   api(
     path,
