@@ -129,28 +129,37 @@ export default class UpdateCourse extends Component {
     const name = event.target.name;
     const value = event.target.value;
 
-    this.setState(() => {
-      return {
+  //   this.setState(() => {
+  //     return {
+  //       [name]: value,
+  //     };
+  //   });
+  // };
+
+  this.setState(() => {
+    return {
+      course: {
         [name]: value,
-      };
-    });
-  };
+      }
+    };
+  });
 
   submit = () => {
-    const { context } = this.props;
+    const { course, id } = this.state;
+
     const {
       title,
       description,
       estimatedTime,
       materialsNeeded,
-      id,
-    } = this.state;
+    } = course;
+
     
     const emailAddress = context.authenticatedUser.emailAddress;
     const password = context.authenticatedUser.password;
     const userId = context.authenticatedUser.userId;
 
-    const course = {
+    const updatedCourse = {
       title,
       description,
       estimatedTime,
@@ -160,7 +169,7 @@ export default class UpdateCourse extends Component {
     };
 
     context.data
-      .UpdateCourse(course, emailAddress, password)
+      .UpdateCourse(updatedCourse, emailAddress, password)
       .then((errors) => {
         if (errors.length) {
           this.setState({ errors });
@@ -178,4 +187,4 @@ export default class UpdateCourse extends Component {
     this.props.history.push(`/courses/${this.props.match.params.id}`);
   };
 }
-
+}
