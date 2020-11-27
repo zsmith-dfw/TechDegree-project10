@@ -131,30 +131,26 @@ export default class UpdateCourse extends Component {
 
     this.setState(() => {
       return {
-        course: {
-          [name]: value,
-        }
+        [name]: value,
       };
     });
-  }
+  };
 
   submit = () => {
     const { context } = this.props;
-
-    const { course, id } = this.state;
-
     const {
       title,
       description,
       estimatedTime,
       materialsNeeded,
-    } = course
+      id,
+    } = this.state;
     
     const emailAddress = context.authenticatedUser.emailAddress;
     const password = context.authenticatedUser.password;
     const userId = context.authenticatedUser.userId;
 
-    const updatedCourse = {
+    const course = {
       title,
       description,
       estimatedTime,
@@ -164,7 +160,7 @@ export default class UpdateCourse extends Component {
     };
 
     context.data
-      .UpdateCourse(updatedCourse, emailAddress, password)
+      .UpdateCourse(course, emailAddress, password)
       .then((errors) => {
         if (errors.length) {
           this.setState({ errors });
