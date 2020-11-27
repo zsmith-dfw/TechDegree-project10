@@ -5,12 +5,10 @@ import axios from "axios";
 
 export default class UpdateCourse extends Component {
   state = {
-    course: {
-      title: "",
-      description: "",
-      estimatedTime: "",
-      materialsNeeded: "",
-    },
+    title: "",
+    description: "",
+    estimatedTime: "",
+    materialsNeeded: "",
     id: this.props.match.params.id,
     errors: [],
   };
@@ -27,12 +25,11 @@ export default class UpdateCourse extends Component {
       .get(`${config.apiBaseUrl}/courses/${params.id}`)
       .then((response) => {
         this.setState({
-          course: {
             title: response.data.title,
             description: response.data.description,
             estimatedTime: response.data.estimatedTime,
             materialsNeeded: response.data.materialsNeeded,
-          },
+          
         });
       })
       .catch((error) => {
@@ -40,15 +37,14 @@ export default class UpdateCourse extends Component {
       });
   };
 
-  render() {
-    const { course, errors } = this.state;
-
-    const {
-      title,
-      description,
-      estimatedTime,
-      materialsNeeded,
-    } = course;
+    render() {
+      const {
+        title,
+        description,
+        estimatedTime,
+        materialsNeeded,
+        errors,
+      } = this.state;
 
     return (
       <div className="bounds course--detail">
@@ -138,6 +134,7 @@ export default class UpdateCourse extends Component {
 
   submit = () => {
     const { context } = this.props;
+
     const {
       title,
       description,
