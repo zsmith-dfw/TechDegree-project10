@@ -30,7 +30,10 @@ export default class UpdateCourse extends Component {
             estimatedTime: response.data.estimatedTime,
             materialsNeeded: response.data.materialsNeeded,
           
-        });
+        }
+        
+        );
+        console.log(this.setState)
       })
       .catch((error) => {
         console.log("Error fetching and parsing data", error);
@@ -38,13 +41,17 @@ export default class UpdateCourse extends Component {
   };
 
     render() {
+      const { errors} = this.state
+
       const {
         title,
         description,
         estimatedTime,
         materialsNeeded,
-        errors,
       } = this.state;
+
+      console.log(this.state);
+
 
     return (
       <div className="bounds course--detail">
@@ -64,7 +71,7 @@ export default class UpdateCourse extends Component {
                       id="title"
                       name="title"
                       type="text"
-                      defaultValue={title}
+                      value={title}
                       onChange={this.change}
                       placeholder="Course title..."
                     />
@@ -75,7 +82,7 @@ export default class UpdateCourse extends Component {
                     id="description"
                     name="description"
                     type="text"
-                    defaultValue={description}
+                    value={description}
                     onChange={this.change}
                     placeholder="Course description..."
                   />
@@ -91,7 +98,7 @@ export default class UpdateCourse extends Component {
                           id="estimatedTime"
                           name="estimatedTime"
                           type="text"
-                          defaultValue={estimatedTime}
+                          value={estimatedTime}
                           onChange={this.change}
                           className="course--time--input"
                           placeholder="Hours"
@@ -105,7 +112,7 @@ export default class UpdateCourse extends Component {
                           id="materialsNeeded"
                           name="materialsNeeded"
                           type="text"
-                          defaultValue={materialsNeeded}
+                          value={materialsNeeded}
                           onChange={this.change}
                           placeholder="List materials..."
                         />
